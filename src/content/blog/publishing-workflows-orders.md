@@ -40,7 +40,7 @@ This is also why AI messaging automation is spreading among SMBs. Order-taking i
 
 Design the workflow so that a finished piece of content triggers downstream actions. When a product page publishes, a feed should update. When a Q&A is approved, it should become available to the assistant that answers customer questions. When availability changes, the content that says "in stock" should change with it.
 
-This requires treating content as data that other systems consume, with clear contracts and triggers. It is more engineering than most content teams are used to, but it is the difference between a workflow that ships artifacts and one that ships outcomes. (For what it's worth, the tools a commerce team might use for the chat side — like the multi-channel order-taking platform from OnlyOrders — are exactly the downstream consumers that benefit from a well-maintained content model.)
+This requires treating content as data that other systems consume, with clear contracts and triggers. It is more engineering than most content teams are used to, but it is the difference between a workflow that ships artifacts and one that ships outcomes. (For what it's worth, the tools a commerce team might use for the chat side — like the multi-channel order-taking platform from [OnlyOrders](/onlyorders/) — are exactly the downstream consumers that benefit from a well-maintained content model.)
 
 ## Measure the loop, not just the output
 

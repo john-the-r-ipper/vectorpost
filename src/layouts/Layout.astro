@@ -39,6 +39,13 @@ const gscVerification = process.env.GSC_VERIFICATION || "";
     <meta property="og:url" content={canonicalHref} />
     <meta name="twitter:card" content="summary" />
     {gscVerification && <meta name="google-site-verification" content={gscVerification} />}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: site.publisher,
+      url: site.publisherUrl,
+      sameAs: [site.publisherUrl],
+    })} />
   </head>
   <body>
     <header class="site-header">
@@ -47,7 +54,7 @@ const gscVerification = process.env.GSC_VERIFICATION || "";
         <nav class="nav-links" aria-label="Primary">
           <a href="/">Home</a>
           <a href="/about">About</a>
-          <a href="https://onlyorders.tech" rel="nofollow">OnlyOrders</a>
+          <a href="/onlyorders/">OnlyOrders</a>
         </nav>
       </div>
     </header>

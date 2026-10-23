@@ -1,0 +1,180 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import site from "../../../site.config.mjs";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog"))
+  .filter((p) =>
+    ["what-onlyorders-is", "chat-first-messenger-stores", "how-onlyorders-works"].includes(
+      p.slug
+    )
+  )
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const tiers = [
+  {
+    name: "Free",
+    price: "$0",
+    ai: "50 AI replies/mo",
+    channels: "1 Facebook page",
+    highlights: ["Inbox & comment management", "Basic order management", "AI auto-reply", "AI post generation"],
+    note: "Perfect for trying out OnlyOrders with the basics.",
+  },
+  {
+    name: "Starter",
+    price: "$29",
+    ai: "500 AI replies/mo",
+    channels: "3 social channels",
+    highlights: ["Order management", "AI auto-reply & smart suggestions", "AI post generation (basic)", "Customer tags & notes", "Basic analytics", "Priority support"],
+    note: "Essential automation for growing online stores.",
+  },
+  {
+    name: "Pro",
+    price: "$79",
+    ai: "2,000 AI replies/mo",
+    channels: "All social channels",
+    highlights: ["Advanced order management", "AI post generation (advanced)", "Payment verification (bKash, Nagad)", "Courier integration", "Advanced analytics", "Priority support"],
+    note: "More automation, more channels, advanced everything.",
+    popular: true,
+  },
+  {
+    name: "Enterprise",
+    price: "Custom",
+    ai: "Unlimited replies",
+    channels: "All channels",
+    highlights: ["Advanced automation", "Custom integrations", "Dedicated account manager", "Advanced analytics & reporting", "SLA & onboarding support", "Custom features"],
+    note: "Custom builds for high-volume stores and agencies.",
+  },
+];
+---
+
+<Layout
+  title="OnlyOrders"
+  description="OnlyOrders is a conversational-commerce platform that turns DMs and comments into confirmed orders — smart replies, chat checkout, an orders dashboard, and courier tracking, all from one inbox."
+>
+  <article>
+    <div class="hero">
+      <h1>OnlyOrders</h1>
+      <p class="tagline">Your orders, on autopilot.</p>
+      <p>
+        <strong>OnlyOrders</strong> is a conversational-commerce platform built
+        for social sellers. It turns DMs and comments into confirmed orders —
+        smart replies, live catalog checks, payment verification, and courier
+        handoff, all from one inbox. The product site is at{" "}
+        <a href="https://onlyorders.tech" rel="nofollow">onlyorders.tech</a>.
+      </p>
+    </div>
+
+    <h2>What it is</h2>
+    <p>
+      OnlyOrders runs on the idea that the message thread is where the sale
+      closes. Its "From first message to delivered order" flow is:
+    </p>
+    <ol>
+      <li><strong>Messenger AI replies</strong> — answers price, size, and stock questions in seconds, in the shop's tone, and hands off when it matters.</li>
+      <li><strong>Checkout inside the chat</strong> — the customer confirms the cart, address, and payment without leaving Messenger.</li>
+      <li><strong>One orders dashboard</strong> — every chat order lands in a single board with status, notes, and totals.</li>
+      <li><strong>Courier tracking, auto-shared</strong> — book the courier in one tap; tracking updates are sent back to the buyer's chat.</li>
+    </ol>
+
+    <h2>Features</h2>
+    <ul>
+      <li><strong>Instant replies</strong> — AI answers customers 24/7.</li>
+      <li><strong>One inbox</strong> — every channel, zero tab chaos.</li>
+      <li><strong>Chat to order</strong> — receipts → courier handoff.</li>
+      <li><strong>Auto posts</strong> — drops published on schedule.</li>
+    </ul>
+    <p class="lede">Everything a chat-first store needs, in one place.</p>
+
+    <h2>Pricing</h2>
+    <p>
+      Every plan ships with the core automation — "Upgrade only when your
+      orders are." Yearly billing saves up to 20%. The Free plan requires no
+      card.
+    </p>
+    <div class="tiers">
+      {tiers.map((t) => (
+        <div class:list={["tier", { popular: t.popular }]}>
+          <h3>{t.name}</h3>
+          <div class="tier-price">{t.price}</div>
+          <div class="tier-sub">{t.ai} · {t.channels}</div>
+          <ul>
+            {t.highlights.map((h) => <li>{h}</li>)}
+          </ul>
+          <p class="tier-note">{t.note}</p>
+        </div>
+      ))}
+    </div>
+    <div class="notice">
+      This page describes the product as published on{" "}
+      <a href="https://onlyorders.tech" rel="nofollow">onlyorders.tech</a>.
+      Vectorpost is operated by OnlyOrders for educational and SEO purposes, as
+      disclosed on the <a href="/about/">About</a> page.
+    </div>
+
+    <h2>Read more</h2>
+    <div class="post-grid">
+      {posts.map((post) => (
+        <a class="post-card" href={`/blog/${post.slug}/`}>
+          <h2>{post.data.title}</h2>
+          <p class="excerpt">{post.data.description}</p>
+          <div class="meta">
+            <span>
+              {post.data.pubDate.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </span>
+            <span>{post.data.category}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin: 1.2rem 0;
+  }
+  .tier {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.3rem;
+  }
+  .tier.popular {
+    border-color: var(--accent);
+    box-shadow: 0 2px 12px rgba(180, 83, 9, 0.12);
+  }
+  .tier h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.1rem;
+  }
+  .tier-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .tier-sub {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0.2rem 0 0.8rem;
+  }
+  .tier ul {
+    margin: 0 0 0.6rem;
+    padding-left: 1.2rem;
+  }
+  .tier li {
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+  }
+  .tier-note {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0;
+  }
+</style>
