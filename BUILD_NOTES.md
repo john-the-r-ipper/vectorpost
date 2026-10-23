@@ -61,4 +61,11 @@ The build generates the static site and a sitemap (`sitemap-index.xml`).
 - Smoke checks: `/` and `/about/` return HTTP 200.
 - Secret scan: clean (no API keys, `sk_`, `ghp_`, or `.env` files).
 - `/about` discloses OnlyOrders (https://onlyorders.tech); no "Oryxa" references.
-- Vercel: skipped (per brief, no `VERCEL_TOKEN` deployment requested).
+
+## Deployment (Vercel)
+
+- Project: **vectorpost** (A John-the-r-ipper, static Astro, `dist` output).
+- Vercel preview URL: https://vectorpost-4vzxjmb9d-john-the-r-ippers-projects.vercel.app
+- Vercel production URL: https://vectorpost.vercel.app
+- Smoke checks: preview and production both return HTTP 200.
+- No `.vercel` secrets committed; `.vercel/` stays gitignored.
