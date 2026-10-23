@@ -1,6 +1,6 @@
 ---
 title: "AI-Assisted Security Research and the Content Team's Quiet Role"
-description: "From AI-assisted vulnerability discovery to broader discussions of model safety, the security conversation has a practical echo for anyone who ships content systems."
+description: "From AI-assisted vulnerability discovery to model safety, the security conversation has a practical echo for anyone who ships content systems."
 pubDate: 2026-07-22
 category: "Content Operations"
 tags:

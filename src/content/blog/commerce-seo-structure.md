@@ -1,6 +1,6 @@
 ---
 title: "SEO for Commerce: Structuring Product Content for Humans, Crawlers, and Agents"
-description: "Commerce SEO is no longer just about titles and meta tags. It is about a structured, consistent content model that humans, crawlers, and AI agents can all read."
+description: "Commerce SEO is no longer just titles and meta tags. It is about a structured content model that humans, crawlers, and AI agents can all read."
 pubDate: 2026-03-11
 category: "Commerce SEO"
 tags:

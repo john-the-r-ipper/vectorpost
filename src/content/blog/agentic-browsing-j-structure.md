@@ -1,6 +1,6 @@
 ---
 title: "Agentic Browsing and the Case for an Answer-Ready Content Model"
-description: "As AI agents begin to browse the web on behalf of shoppers, content that answers a question cleanly becomes the asset that gets surfaced. Here is how to prepare."
+description: "As AI agents browse on behalf of shoppers, content that answers a question cleanly becomes the asset that gets surfaced. Here is how to prepare."
 pubDate: 2026-05-14
 category: "Commerce SEO"
 tags:

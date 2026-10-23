@@ -1,6 +1,6 @@
 ---
 title: "What Is OnlyOrders? A Conversational Commerce Started Explained"
-description: "OnlyOrders turns DMs and comments into confirmed orders — smart replies, live catalog checks, payment verification, and courier handoff from one inbox. Here is what it is and where it fits."
+description: "OnlyOrders turns DMs and comments into confirmed orders — smart replies, live catalog checks, payment verification, and courier handoff from one inbox."
 pubDate: 2026-05-06
 category: "Content Operations"
 tags:

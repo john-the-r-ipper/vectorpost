@@ -1,6 +1,6 @@
 ---
 title: "How Retrieval Is Rewriting Content Operations"
-description: "Content teams used to publish for a page view. In a retrieval-first world, the job is to make content findable, matchable, and routable. Here is how to think about it."
+description: "Content teams used to publish for a page view. In a retrieval-first world, the job is to make content findable, matchable, and routable."
 pubDate: 2026-02-18
 category: "Content Operations"
 tags:

@@ -1,6 +1,6 @@
 ---
 title: "Publishing Workflows That Actually Move Orders"
-description: "Most publishing workflows ship content. Fewer ship orders. Here is how to design a workflow where content is not the end of the pipeline but a step toward a purchase."
+description: "Most publishing workflows ship content. Fewer ship orders. Here is how to make content a step toward a purchase, not the end of the pipeline."
 pubDate: 2026-04-02
 category: "Publishing"
 tags:

@@ -1,0 +1,98 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const faq = [
+  {
+    q: "What is OnlyOrders?",
+    a: "OnlyOrders is a conversational-commerce platform for social sellers. It turns DMs and comments into confirmed orders — smart replies, live catalog checks, payment verification, and courier handoff, all from one inbox.",
+  },
+  {
+    q: "Where can I find the OnlyOrders product?",
+    a: "The OnlyOrders product site is at https://onlyorders.tech. This blog is operated by OnlyOrders for educational and SEO purposes.",
+  },
+  {
+    q: "Which channels does OnlyOrders support?",
+    a: "OnlyOrders aggregates channels including Messenger, WhatsApp, and Instagram into one inbox. The Free plan covers one Facebook page, Starter includes three social channels, and Pro and Enterprise cover all channels.",
+  },
+  {
+    q: "How does checkout inside the chat work?",
+    a: "The customer confirms the cart, delivery address, and payment method without leaving the messaging thread, so the order is captured in the conversation rather than on an external checkout page.",
+  },
+  {
+    q: "Which payment methods does OnlyOrders verify?",
+    a: "The Pro tier includes payment verification for bKash and Nagad, along with courier integration for arranging delivery.",
+  },
+  {
+    q: "Is there a free plan?",
+    a: "Yes. The Free plan costs $0 and includes 50 AI replies per month, one Facebook page, inbox and comment management, basic order management, AI auto-reply, and AI post generation. No card is required.",
+  },
+  {
+    q: "How does courier tracking work?",
+    a: "The merchant books a courier in one tap, and tracking updates are sent back automatically into the buyer's chat thread.",
+  },
+  {
+    q: "Who is OnlyOrders built for?",
+    a: "It is built for social sellers and small-to-medium merchants whose primary sales channel is messaging, including solo sellers, small brands, and agencies running multiple client stores.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.a,
+    },
+  })),
+};
+---
+
+<Layout
+  title="FAQ"
+  description="Frequently asked questions about OnlyOrders, the conversational-commerce platform for social sellers."
+>
+  <article>
+    <h1>FAQ</h1>
+    <p class="lede">
+      Frequently asked questions about OnlyOrders, the conversational-commerce
+      platform for social sellers.
+    </p>
+
+    <p>
+      This page describes the product as published on{" "}
+      <a href="https://onlyorders.tech" rel="nofollow">onlyorders.tech</a>.
+      Vectorpost is operated by OnlyOrders for educational and SEO purposes, as
+      disclosed on the <a href="/about/">About</a> page.
+    </p>
+
+    <h2>Questions</h2>
+    {faq.map((f) => (
+      <div class="faq-item">
+        <h3>{f.q}</h3>
+        <p>{f.a}</p>
+      </div>
+    ))}
+  </article>
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <style>
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.3rem;
+      margin: 0 0 1rem;
+    }
+    .faq-item h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.1rem;
+    }
+    .faq-item p {
+      margin: 0;
+    }
+  </style>
+</Layout>
