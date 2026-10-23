@@ -69,3 +69,22 @@ The build generates the static site and a sitemap (`sitemap-index.xml`).
 - Vercel production URL: https://vectorpost.vercel.app
 - Smoke checks: preview and production both return HTTP 200.
 - No `.vercel` secrets committed; `.vercel/` stays gitignored.
+
+## SEO post-deploy checks (2026-10-23)
+
+- Google Search Console placeholder added: `public/google-site-verification-PLACEHOLDER.html`;
+  optional `GSC_VERIFICATION` env drives the `<meta name="google-site-verification">` tag (omitted when empty).
+- Robots.txt now generated per target from `src/pages/robots.txt.ts`:
+  - Pages: `Sitemap: https://john-the-r-ipper.github.io/vectorpost/sitemap-index.xml`
+  - Vercel: `Sitemap: https://vectorpost.vercel.app/sitemap-index.xml`
+- No `noindex` meta/header anywhere.
+- Playwright live checks added (`tests/postdeploy.spec.ts`, `playwright.config.ts`, `npm run check:live`):
+  home, /about/, every sitemap post URL => 200; robots.txt + sitemap reachable; no noindex.
+- Deploys: Pages workflow run 39978192868 (success); Vercel prod deployment
+  `vectorpost-o8ldjxwui-john-the-r-ippers-projects.vercel.app` (URL https://vectorpost.vercel.app).
+- Live check results:
+  - BASE_URL=https://john-the-r-ipper.github.io/vectorpost/ => 3/3 passed
+  - BASE_URL=https://vectorpost.vercel.app => 3/3 passed
+
+CHECKS_PAGES=pass
+CHECKS_VERCEL=pass
