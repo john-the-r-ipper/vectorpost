@@ -47,3 +47,18 @@ npm run build
 ```
 
 The build generates the static site and a sitemap (`sitemap-index.xml`).
+
+## Deployment (GitHub Pages)
+
+- Repo: https://github.com/john-the-r-ipper/vectorpost (public)
+- Pages URL: https://john-the-r-ipper.github.io/vectorpost/
+- Build/deploy workflow: `.github/workflows/pages.yml` on push to `main` —
+  build job (`npm ci`, `npm run build` with `SITE_URL`/`BASE_PATH`) +
+  `actions/upload-pages-artifact` + `actions/deploy-pages`.
+- Pages source: Actions (workflow). Deploy environment: `github-pages`.
+- Final run: `Deploy GitHub Pages` run 39976695807 — status completed,
+  conclusion success (build + deploy jobs passed).
+- Smoke checks: `/` and `/about/` return HTTP 200.
+- Secret scan: clean (no API keys, `sk_`, `ghp_`, or `.env` files).
+- `/about` discloses OnlyOrders (https://onlyorders.tech); no "Oryxa" references.
+- Vercel: skipped (per brief, no `VERCEL_TOKEN` deployment requested).
