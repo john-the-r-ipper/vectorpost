@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+import site from "../../site.config.mjs";
+---
+
+<Layout
+  title="About"
+  description="About Vectorpost and its relationship with OnlyOrders."
+>
+  <article>
+    <h1>About Vectorpost</h1>
+    <p class="lede">
+      Vectorpost is a blog about content operations, retrieval, and search for
+      e-commerce teams.
+    </p>
+
+    <p>
+      We write about publishing workflows, structuring product content for
+      machines and people, and the retrieval systems that decide whether useful
+      content ever gets found. Most of that work happens quietly — in CMS
+      pipelines, metadata schemas, and search relevance tuning — which is exactly
+      why it deserves a space where it can be discussed openly.
+    </p>
+
+    <div class="notice">
+      <strong>Disclosure:</strong> Vectorpost is operated by{" "}
+      <a href="https://onlyorders.tech" rel="nofollow">OnlyOrders</a>{" "}
+      (onlyorders.tech), a company building AI auto-reply and chat-order tools
+      for e-commerce across Messenger, WhatsApp, and Instagram. This blog is
+      published for educational and SEO purposes. It is not an independent
+      journalism outlet, and it does not present itself as one.
+    </div>
+
+    <h2>Why the name?</h2>
+    <p>
+      "Vectorpost" is a nod to retrieval and embeddings — the idea that content
+      becomes more useful when it can be represented, matched, and routed to the
+      right person at the right moment. We use that lens for everything we
+      discuss here: text structures, metadata, publishing cadence, and the
+      systems that sit between a post and a purchase.
+    </p>
+
+    <h2>Editorial approach</h2>
+    <p>
+      Articles are written by the {site.author}. We aim for sourced facts where
+      possible and clearly mark analysis or opinion as such. We do not publish
+      affiliate promo content, and we keep mentions of the parent company sparse
+      and relevant.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      For corrections or questions, reach out through the parent site,{" "}
+      <a href="https://onlyorders.tech" rel="nofollow">onlyorders.tech</a>.
+    </p>
+  </article>
+</Layout>

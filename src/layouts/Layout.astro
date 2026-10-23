@@ -1,0 +1,67 @@
+---
+import site from "../../site.config.mjs";
+import "../styles/global.css";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: URL;
+}
+
+const { title, description, canonical } = Astro.props;
+
+const pageTitle = title ? `${title} · ${site.name}` : site.name;
+const pageDescription = description || site.description;
+
+const canonicalUrl =
+  canonical && canonical.toString();
+const path = Astro.url.pathname.endsWith("/") ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const defaultCanonical = new URL(path, site.siteUrl);
+
+const canonicalHref = canonicalUrl || defaultCanonical.toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonicalHref} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalHref} />
+    <meta name="twitter:card" content="summary" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="brand" href="/">Vector<span>post</span></a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="https://onlyorders.tech" rel="nofollow">OnlyOrders</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>© {new Date().getFullYear()} {site.name}. Operated by {site.publisher}.</span>
+        <span>
+          <a href="/about">About</a> ·{" "}
+          <a href="https://onlyorders.tech" rel="nofollow">onlyorders.tech</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>
