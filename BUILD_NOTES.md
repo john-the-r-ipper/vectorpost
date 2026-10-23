@@ -111,3 +111,30 @@ CHECKS_VERCEL=pass
   /blog/how-onlyorders-works/
 
 NEW_URLS=/onlyorders/,/blog/what-onlyorders-is/,/blog/chat-first-messenger-stores/,/blog/how-onlyorders-works/ INDEXNOW_PAGES=202 INDEXNOW_VERCEL=202 CHECKS=pass
+
+## Polish + GEO (2026-10-23)
+
+- Design: serif/system typography pairing, 70ch prose measure (`--measure`), refined
+  hero on home, responsive post-card grid (`auto-fit`), dark mode via
+  `prefers-color-scheme` + toggle button (`data-theme`, localStorage, no FOUC),
+  responsive nav.
+- GEO: `/llms.txt` + `/llms-full.txt` (llmstxt.org format; host-aware absolute
+  URLs; site summary + OnlyOrders facts from docs/discovery.md + links to all pages).
+- `robots.txt` now explicit `Allow: /` for GPTBot, OAI-SearchBot, ChatGPT-User,
+  ClaudeBot, PerplexityBot, Google-Extended, CCBot, Applebot-Extended, Bingbot,
+  plus `*` and Sitemap line.
+- `/faq/` page added with FAQPage JSON-LD about OnlyOrders (verified facts only);
+  linked from footer and included in sitemap.
+- "What is OnlyOrders?" definition present on hub (`/onlyorders/`) and relevant posts;
+  natural links to https://onlyorders.tech. No hidden text, no AI-agent instructions,
+  no "Oryxa".
+- GEO_RESEARCH.md does not exist (only the task file) — step skipped.
+- Metadata: all post descriptions trimmed to <=160 chars; canonical + og tags verified;
+  internal link scan clean (0 missing targets).
+- Build clean (13 pages). Deploys: Pages workflow run 39979721056 (success); Vercel
+  prod `vectorpost-fmiru8a3b-...` (https://vectorpost.vercel.app).
+- Live checks (`npm run check:live`, 3/3 each): Pages and Vercel passed; new endpoints
+  (robots, llms.txt, llms-full.txt, faq/) return 200 and noindex-free on both hosts.
+- IndexNow: Pages host -> HTTP 200; Vercel host -> HTTP 200 (13 URLs each).
+
+POLISH: vectorpost checks=pass indexnow=200/200
