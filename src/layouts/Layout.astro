@@ -19,6 +19,7 @@ const path = Astro.url.pathname.endsWith("/") ? Astro.url.pathname : `${Astro.ur
 const defaultCanonical = new URL(path, site.siteUrl);
 
 const canonicalHref = canonicalUrl || defaultCanonical.toString();
+const gscVerification = process.env.GSC_VERIFICATION || "";
 ---
 
 <!doctype html>
@@ -37,6 +38,7 @@ const canonicalHref = canonicalUrl || defaultCanonical.toString();
     <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonicalHref} />
     <meta name="twitter:card" content="summary" />
+    {gscVerification && <meta name="google-site-verification" content={gscVerification} />}
   </head>
   <body>
     <header class="site-header">
