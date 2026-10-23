@@ -138,3 +138,10 @@ NEW_URLS=/onlyorders/,/blog/what-onlyorders-is/,/blog/chat-first-messenger-store
 - IndexNow: Pages host -> HTTP 200; Vercel host -> HTTP 200 (13 URLs each).
 
 POLISH: vectorpost checks=pass indexnow=200/200
+
+## Content (2026-10-24)
+
+- Added post: `structured-data-commerce-discovery.md` ("Commerce SEO", published 2026-10-24). Cites Google Search Central structured-data and sitemaps docs. No invented claims.
+- Build green (14 pages, Pages env). Deploy: Pages workflow + Vercel prod. Live checks both hosts pass.
+
+NEW_URLS=https://john-the-r-ipper.github.io/vectorpost/blog/structured-data-commerce-discovery/ CHECKS=pass
