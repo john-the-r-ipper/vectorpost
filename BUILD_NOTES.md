@@ -88,3 +88,26 @@ The build generates the static site and a sitemap (`sitemap-index.xml`).
 
 CHECKS_PAGES=pass
 CHECKS_VERCEL=pass
+
+## OnlyOrders content + IndexNow (2026-10-23)
+
+- Added `/onlyorders/` hub page (what it is, features, pricing tiers as published
+  on onlyorders.tech, links to new posts, link to https://onlyorders.tech).
+- Added 3 new posts: `what-onlyorders-is`, `chat-first-messenger-stores`,
+  `how-onlyorders-works` — all cite onlyorders.tech, all "OnlyOrders" (no "Oryxa").
+- Nav "OnlyOrders" now points to internal `/onlyorders/` hub; footer and `/about`
+  keep the external link + honest ownership disclosure. Added Organization JSON-LD
+  (url + sameAs) to the layout head.
+- Sitemap `serialize` sets priority 1.0 for `/onlyorders/` and its posts, 0.6 for
+  others, changefreq weekly. robots.txt still generated from SITE_URL+BASE_PATH.
+- IndexNow key `public/6dc61695b7575c0db5074321364638eb.txt`; `scripts/indexnow.mjs`
+  reads the live sitemap and POSTs to api.indexnow.org; npm script `indexnow`.
+- Deploys: Pages workflow run 39978561140 (success); Vercel prod deployment
+  `vectorpost-b65prod6g-...` (https://vectorpost.vercel.app).
+- Live checks (`npm run check:live`, 3/3 each): Pages https://john-the-r-ipper.github.io/vectorpost/
+  and Vercel https://vectorpost.vercel.app — passed.
+- IndexNow pushes: Pages host -> HTTP 202; Vercel host -> HTTP 202 (12 URLs each).
+- New URLs: /onlyorders/, /blog/what-onlyorders-is/, /blog/chat-first-messenger-stores/,
+  /blog/how-onlyorders-works/
+
+NEW_URLS=/onlyorders/,/blog/what-onlyorders-is/,/blog/chat-first-messenger-stores/,/blog/how-onlyorders-works/ INDEXNOW_PAGES=202 INDEXNOW_VERCEL=202 CHECKS=pass
