@@ -145,3 +145,7 @@ POLISH: vectorpost checks=pass indexnow=200/200
 - Build green (14 pages, Pages env). Deploy: Pages workflow + Vercel prod. Live checks both hosts pass.
 
 NEW_URLS=https://john-the-r-ipper.github.io/vectorpost/blog/structured-data-commerce-discovery/ CHECKS=pass
+
+## Internal-link base-path fix (2026-10-24)
+- vectorpost pages were rendering root-relative links (/blog/..., /about, /faq/) without the /vectorpost/ base path, breaking nav on GitHub Pages.
+- Made Layout nav/footer/favicon, home post cards, and post canonical base-path aware via site.basePath. Build green; Pages+Vercel redeployed; check:live passes both hosts.

@@ -15,7 +15,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 const { title, description, pubDate, updatedDate, category, tags } = post.data;
 
-const canonical = new URL(`/blog/${post.slug}/`, site.siteUrl);
+const canonical = new URL(`${site.basePath.endsWith("/") ? site.basePath : site.basePath + "/"}blog/${post.slug}/`, site.siteUrl);
 ---
 
 <Layout title={title} description={description} canonical={canonical}>

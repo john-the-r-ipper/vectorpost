@@ -6,6 +6,7 @@ import site from "../../site.config.mjs";
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+const base = site.basePath.endsWith("/") ? site.basePath : site.basePath + "/";
 ---
 
 <Layout title={site.name}>
@@ -22,7 +23,7 @@ const posts = (await getCollection("blog")).sort(
 
   <div class="post-grid">
     {posts.map((post) => (
-      <a class="post-card" href={`/blog/${post.slug}/`}>
+      <a class="post-card" href={`${base}blog/${post.slug}/`}>
         <h2>{post.data.title}</h2>
         <p class="excerpt">{post.data.description}</p>
         <div class="meta">

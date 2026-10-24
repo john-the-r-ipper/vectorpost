@@ -20,6 +20,9 @@ const defaultCanonical = new URL(path, site.siteUrl);
 
 const canonicalHref = canonicalUrl || defaultCanonical.toString();
 const gscVerification = process.env.GSC_VERIFICATION || "";
+const base = site.basePath.endsWith("/") ? site.basePath : site.basePath + "/";
+const link = (href: string) =>
+  href.startsWith("http") || href.startsWith("#") ? href : base + href.replace(/^\//, "");
 ---
 
 <!doctype html>
@@ -31,7 +34,7 @@ const gscVerification = process.env.GSC_VERIFICATION || "";
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <link rel="canonical" href={canonicalHref} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={link("/favicon.svg")} type="image/svg+xml" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={pageTitle} />
@@ -64,12 +67,12 @@ const gscVerification = process.env.GSC_VERIFICATION || "";
   <body>
     <header class="site-header">
       <div class="nav-wrap">
-        <a class="brand" href="/">Vector<span>post</span></a>
+        <a class="brand" href={link("/")}>Vector<span>post</span></a>
         <div class="nav-right">
           <nav class="nav-links" aria-label="Primary">
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/onlyorders/">OnlyOrders</a>
+            <a href={link("/")}>Home</a>
+            <a href={link("/about")}>About</a>
+            <a href={link("/onlyorders/")}>OnlyOrders</a>
           </nav>
           <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
             <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -92,8 +95,8 @@ const gscVerification = process.env.GSC_VERIFICATION || "";
       <div class="footer-inner">
         <span>© {new Date().getFullYear()} {site.name}. Operated by {site.publisher}.</span>
         <span>
-          <a href="/about">About</a> ·{" "}
-          <a href="/faq/">FAQ</a> ·{" "}
+          <a href={link("/about")}>About</a> ·{" "}
+          <a href={link("/faq/")}>FAQ</a> ·{" "}
           <a href="https://onlyorders.tech" rel="nofollow">onlyorders.tech</a>
         </span>
       </div>
