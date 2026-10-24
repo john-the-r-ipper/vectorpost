@@ -149,3 +149,7 @@ NEW_URLS=https://john-the-r-ipper.github.io/vectorpost/blog/structured-data-comm
 ## Internal-link base-path fix (2026-10-24)
 - vectorpost pages were rendering root-relative links (/blog/..., /about, /faq/) without the /vectorpost/ base path, breaking nav on GitHub Pages.
 - Made Layout nav/footer/favicon, home post cards, and post canonical base-path aware via site.basePath. Build green; Pages+Vercel redeployed; check:live passes both hosts.
+
+## SEO / JSON-LD schema (2026-10-24)
+- Added consistent JSON-LD: Organization on home; AboutPage+Organization on /about/ and /onlyorders/ hub, both hosts. Verified via supervisor/jsonld_validate.py (12/12 pass).
+- Vercel prod redeployed (precis alias repointed to prod); Pages workflow green; check:live pass both hosts; IndexNow HTTP 200 both hosts.
