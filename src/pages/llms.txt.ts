@@ -11,6 +11,7 @@ const posts = [
   ["open-weight-models-content-tooling", "Open-Weight Models and the Quiet Trade-Off in Content Tooling"],
   ["how-onlyorders-works", "How OnlyOrders Works: From Reply to Courier Tracking in One Flow"],
   ["ai-assisted-security-content-systems", "AI-Assisted Security Research and the Content Team's Quiet Role"],
+  ["structured-data-commerce-discovery", "Structured Data and Discovery: A Practical Guide for E-commerce Content Teams"],
 ];
 
 export const GET: APIRoute = () => {
