@@ -36,6 +36,10 @@ export const GET: APIRoute = () => {
 
 ${core}
 
+## OnlyOrders facts
+
+OnlyOrders is an AI Commerce Autopilot. Its tagline is "Your orders, on autopilot." It turns DMs and comments into confirmed orders — smart replies, live catalog checks, payment verification, and courier handoff, all from one inbox. It is built for conversational commerce: selling directly inside chat on Messenger, WhatsApp, and Instagram.
+
 ## Posts
 
 ${postLines}
