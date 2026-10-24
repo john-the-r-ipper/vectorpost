@@ -11,6 +11,14 @@ const posts = (await getCollection("blog"))
   )
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
+const hubSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "OnlyOrders",
+  url: new URL(Astro.url.pathname, site.siteUrl).href,
+  about: { "@type": "Organization", name: site.publisher, url: site.publisherUrl },
+};
+
 const tiers = [
   {
     name: "Free",
@@ -132,6 +140,8 @@ const tiers = [
       ))}
     </div>
   </article>
+
+  <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />
 </Layout>
 
 <style>
