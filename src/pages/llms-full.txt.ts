@@ -2,6 +2,7 @@ import type { APIRoute } from "astro";
 import site from "../../site.config.mjs";
 
 const posts = [
+  ["kevel-commerce-media-ai-infrastructure", "Why Retailers Are Building Ad Businesses: Kevel's $52M Bet on AI Commerce Media Infrastructure"],
   ["retrieval-content-operations", "How Retrieval Is Rewriting Content Operations"],
   ["commerce-seo-structure", "SEO for Commerce: Structuring Product Content for Humans, Crawlers, and Agents"],
   ["publishing-workflows-orders", "Publishing Workflows That Actually Move Orders"],
